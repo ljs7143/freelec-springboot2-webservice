@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity    //entity 클래스에서는 절대 setter 메소드를 만들지 않는다
+
 public class Posts {
     @Id   //pk field
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +28,11 @@ public class Posts {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public void update(String title, String content){
+        this.title = title;
+        this.content = content;
     }
 
 }

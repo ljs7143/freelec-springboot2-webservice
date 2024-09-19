@@ -27,8 +27,9 @@ public class PostsRepositoryTest {
         String title = "테스트 게시글";
         String content = "테스트 본문";
 
-        postsRepository.save(builder().title(title).content(content).author("jojoldu@gmail.com").build());
-
+        System.out.println("전");
+        postsRepository.save(Posts.builder().title(title).content(content).author("jojoldu@gmail.com").build());
+        System.out.println("후");
         List<Posts> postsList = postsRepository.findAll();
 
         Posts posts = postsList.get(0);
