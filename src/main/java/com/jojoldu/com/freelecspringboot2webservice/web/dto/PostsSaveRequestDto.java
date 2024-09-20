@@ -21,8 +21,12 @@ public class PostsSaveRequestDto {
         this.author = author;
     }
 
-    public Posts toEntity(){
-        return Posts.builder().title(title).content(content).author(author).build();
+    public Posts toEntity() {
+        return Posts.builder()
+                .author(this.author)
+                .content(this.content)
+                .title(this.title)
+                .build();
     }
 
 }

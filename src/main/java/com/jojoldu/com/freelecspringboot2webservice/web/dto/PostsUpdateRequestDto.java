@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class PostsUpdateRequestDto {
+
+
+public class PostsUpdateRequestDto { //update 시 데이터를 안전하게 전달해줄 dto를 생성
     private String title;
     private String content;
 

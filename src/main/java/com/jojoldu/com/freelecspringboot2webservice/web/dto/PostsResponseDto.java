@@ -10,7 +10,10 @@ public class PostsResponseDto {
     private String content;
     private String author;
 
-    public PostsResponseDto(Posts entity){
-
+    public PostsResponseDto(Posts entity){  //client에게 보여줄 데이터를 안전하게 은닉하는 DTO의 역할을 한다
+        this.id = entity.getId();
+        this.author = entity.getAuthor();
+        this.title = entity.getTitle();
+        this.content = entity.getContent();
     }
 }
