@@ -1,6 +1,7 @@
 package com.jojoldu.com.freelecspringboot2webservice.web;
 
 
+import com.jojoldu.com.freelecspringboot2webservice.config.auth.LoginUser;
 import com.jojoldu.com.freelecspringboot2webservice.config.auth.dto.SessionUser;
 import com.jojoldu.com.freelecspringboot2webservice.service.posts.PostsService;
 import com.jojoldu.com.freelecspringboot2webservice.web.dto.PostsResponseDto;
@@ -25,10 +26,9 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model){
-//        Controller에서 사용자에게 응답할 View를 생성할 때 Model을 이용하여 View에 데이터를 전달하는 방법->model.addAttribute
+    public String index(Model model, @LoginUser SessionUser user){
+        //Controller에서 사용자에게 응답할 View를 생성할 때 Model을 이용하여 View에 데이터를 전달하는 방법->model.addAttribute
         model.addAttribute("posts", postsService.findAllDesc());
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if(user != null){
             model.addAttribute("userName", user.getName());
         }
